@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="spectre.min.css">
+    <link href="./assets/style.css">
+    <title>Which Cocktail are You?</title>
 </head>
 <body>
-    
+    <!-- <div id="wrapper" style="display: none"> -->
+        <div id="intro">
+            <h1>Which Cocktail are You?</h1>
+            <p>Answer the following questions to determine what type of cocktail you are!</p>
+            <!-- <ul id="questionsUl"></ul> -->
+            <button class="btn btn-lg">Start Quiz</button>
+        </div>
+        <div id="question">
+            <h1 id="questionTitle">question title</h1>
+            <ul id="questionChoice">
+                <li>choice 1</li>
+                <li>choice 2</li>
+                <li>choice 3</li>
+                <li>choice 4</li>
+            </ul>
+        <div id="results">
+            <h1>Your Cocktail</h1>
+                <h2 id="cocktail-result"></h2>
+                <button id="goBack">Take Again</button>
+            </div>
+    <script src="./assets/script.js"></script>
 </body>
 </html>
