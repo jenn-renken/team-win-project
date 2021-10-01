@@ -1,9 +1,9 @@
 // Array of questions for the quiz.
 var questions = [
     { 
-        question: 'Who invented JavaScript?', 
-        choices: ['Elon Musk', 'Steve Jobs', 'Bill Gates', 'Brendan Eich'],
-        answer: 'Brendan Eich' 
+        question: 'Which ingredient is your favorite', 
+        choices: ['Juniper', 'Honey', 'Lavender'],
+        answer: 'Lavender' 
     },
     {
         question: "String values must be enclosed within ____ when being assigned to variables.",
@@ -27,9 +27,9 @@ var questions = [
     },
   ];
 
-var score = 0;
+// var score = 0;
 var questionIndex = 0;
-var holdInterval = 0;
+// var holdInterval = 0;
 
 
 var hideResponseTimeout = null;
@@ -41,12 +41,9 @@ var hideResponseTimeout = null;
      questionChoice: document.querySelector("#questionChoice"),
      intro: document.querySelector("#intro"),
      questionTitle: document.querySelector("#questionTitle"),
-     viewHighScores: document.querySelector("#viewHighScores"),
-     scores: document.querySelector("#scores"),
-     highScore: document.querySelector("#highScore"),
-     clear: document.querySelector("#clear"),
      goBack: document.querySelector("#goBack"),
-     finalScore: document.querySelector("#finalScore"),
+     results: document.querySelector("#results"),
+     cocktailResult: document.querySelector("#cocktail-result"),
   };
 
 function showWrapperElement(element) {
@@ -83,8 +80,8 @@ function startQuiz() {
 
 function showQuizItem(number) {
     showWrapperElement();
-    var delay = number? 2000:0;
-    hideResponseTimeout = setTimeout(hideResponse, delay);
+    // var delay = number? 2000:0;
+    // hideResponseTimeout = setTimeout(hideResponse, delay);
     var question = questions[number];
     elements.questionTitle.innerHTML = question.question;
     showChoices(number);
@@ -108,52 +105,52 @@ function removeAllChildNodes(parent) {
     }
 }
 
-// // compare choices with answer
-// function onChoice(event) {
-//     clearTimeout(hideResponseTimeout);
-//     hideResponse();
-//     var element = event.target;
+// compare choices with answer
+function onChoice(event) {
+    // clearTimeout(hideResponseTimeout);
+    // hideResponse();
+    var element = event.target;
 
-//     if (element.matches("li")) {
-//         var createDiv = document.createElement("div");
-//         createDiv.setAttribute("id", "createDiv");
+    if (element.matches("li")) {
+        var createDiv = document.createElement("div");
+        createDiv.setAttribute("id", "createDiv");
 
-//         if (element.textContent == questions[questionIndex].answer) {
-//             score++;
-//             showElement(elements.correct);
+        if (element.textContent == questions[questionIndex].answer) {
+            score++;
+            showElement(elements.correct);
 
-//         } else {
-//             secondsLeft = secondsLeft - penalty;
-//             showElement(elements.wrong);
-//         }
-//     }
-//     questionIndex++;
-//     if (questionIndex >= questions.length) {
-//         finishQuiz();
-//     } else {
-//         showQuizItem(questionIndex);
-//     }
-// }
+        } else {
+            // secondsLeft = secondsLeft - penalty;
+            showElement(elements.wrong);
+        }
+    }
+    questionIndex++;
+    if (questionIndex >= questions.length) {
+        finishQuiz();
+    } else {
+        showQuizItem(questionIndex);
+    }
+}
 
-// function finishQuiz() {
+function finishQuiz() {
    
-//     // calculate time remaining and show score
-//     if (secondsLeft < 0) {
-//         secondsLeft = 0;
-//     }
-//         clearInterval(holdInterval);
-//         elements.finalScore.textContent = secondsLeft;
+    // calculate time remaining and show score
+    // if (secondsLeft < 0) {
+    //     secondsLeft = 0;
+    // }
+    //     clearInterval(holdInterval);
+    //     elements.finalScore.textContent = secondsLeft;
    
-//     showWrapperElement(elements.initials);
-// }
+    // showWrapperElement(elements.initials);
+}
 
-// function showScores() {
-//     var scores = getAllScores();
-//     removeAllChildNodes(elements.highScore);
-//     scores.forEach(function (score) {
+// function showResult() {
+//     var result = getAllScores();
+//     removeAllChildNodes(elements.results);
+//     result.forEach(function (result) {
 //         var listItem = document.createElement("li");
-//         listItem.textContent = `${score.initials} - ${score.score}`;
-//         elements.highScore.appendChild(listItem);
+//         listItem.textContent = `${score.initials} - ${result.score}`;
+//         elements.results.appendChild(listItem);
 //     })
 //     showWrapperElement(elements.scores);
 // }
