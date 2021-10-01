@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Array of questions for the quiz.
 var questions = [
     { 
@@ -214,3 +215,12 @@ elements.startQuiz.addEventListener("click", startQuiz);
 
     
 
+=======
+function getCocktail () {
+	fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?i=vodka")
+	.then(function(response) {
+	  console.log(response);
+	})
+}
+getCocktail();
+>>>>>>> c4c984a439ea67ff3ae8eef9880778f91b7bdb47
