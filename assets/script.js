@@ -213,9 +213,10 @@
 // elements.startQuiz.addEventListener("click", startQuiz);
 
     
+// "margarita" can be replaced with our var of choice 
 
 function getCocktail () {
-	fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?i=vodka")
+	fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
 	.then(function(response) {
 	  console.log(response);
 	})
