@@ -196,10 +196,10 @@ function finishQuiz() {
 elements.goBack.addEventListener("click", function () {
      score = 0;
      questionIndex = 0;
-     secondsLeft = questions.length * 20;
+    //  secondsLeft = questions.length * 20;
      holdInterval = 0;
-     elements.currentTime.textContent = "";
-     elements.inputInitials.value = "";
+    //  elements.currentTime.textContent = "";
+    //  elements.inputInitials.value = "";
     showWrapperElement(elements.intro);
     
 });
