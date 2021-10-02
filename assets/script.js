@@ -1,37 +1,34 @@
 // Array of questions for the quiz.
 var questions = [
   {
-    question: "Which ingredient is your favorite",
-    choices: ["Juniper", "Honey", "Lavender", "Pineapple"],
+    question: "Select an ingredient:",
+    choices: ["Elderberry", "Honey", "Lavender", "Pineapple"],
   },
   {
     question: "How are you feeling?",
-    choices: ["happy", "rock n' roll", "gregarious","sad"],
+    choices: ["happy", "pensive", "gregarious","sad"],
   },
   {
-    question: "A useful tool to debug code and print content is:",
+    question: "Select another ingredient:",
     choices: [
-      "for()",
-      "document.getElement",
-      ".addEventListener",
-      "console.log()",
+      "Mint",
+      "Cherry",
+      "Cranberry",
+      "Lime",
     ],
-    answer: "console.log()",
   },
   {
-    question: "Which of the following is a data type?",
-    choices: ["prompt", "boolean", "alert", "variable"],
-    answer: "boolean",
+    question: "Select a mixer:",
+    choices: ["Grand Marnier", "Vermouth", "Aperol", "Cointreau"],
   },
   {
-    question: "What is an array used for?",
+    question: "Where would you rather spend the day?",
     choices: [
-      "storing numbers and strings",
-      "iterating through data",
-      "displaying content",
-      "none of the above",
+      "By the pool",
+      "In a library",
+      "At a bar",
+      "At the beach",
     ],
-    answer: "storing numbers and strings",
   },
 ];
 
@@ -85,19 +82,11 @@ function hideElement(element) {
 }
 
 function startQuiz() {
-  // startTimer();
   showQuizItem(0);
 }
 
-// function hideResponse () {
-//     hideElement(elements.correct);
-//     hideElement(elements.wrong);
-// }
-
 function showQuizItem(number) {
   showWrapperElement();
-  // var delay = number? 2000:0;
-  // hideResponseTimeout = setTimeout(hideResponse, delay);
   var question = questions[number];
   elements.questionTitle.innerHTML = question.question;
   showChoices(number);
@@ -123,27 +112,13 @@ function removeAllChildNodes(parent) {
   }
 }
 
-// compare choices with answer
+// assign ranking to answers
 function onChoice(event) {
-  // clearTimeout(hideResponseTimeout);
-  // hideResponse();
   const answerId = parseInt(event.target.id)
     const selectedKey = spiritList[answerId]
     spiritDict[selectedKey]+=1;
     console.log(spiritDict)
-//   if (element.matches("li")) {
-//     var createDiv = document.createElement("div");
-//     createDiv.setAttribute("id", "createDiv");
 
-//     // if (element.textContent == questions[questionIndex].answer) {
-//     //     score++;
-//     //     showElement(elements.correct);
-
-//     // } else {
-//     //     // secondsLeft = secondsLeft - penalty;
-//     //     showElement(elements.wrong);
-//     // }
-//   }
   questionIndex++;
   if (questionIndex >= questions.length) {
     finishQuiz();
@@ -158,13 +133,6 @@ function finishQuiz() {
     getCocktail(drink)
     getGif(drink)
     // THIS IS WHERE YOU MAKE THE API CALL AND SHOW THE RESULTS
-  // calculate time remaining and show score
-  // if (secondsLeft < 0) {
-  //     secondsLeft = 0;
-  // }
-  //     clearInterval(holdInterval);
-  //     elements.finalScore.textContent = secondsLeft;
-  // showWrapperElement(elements.initials);
 }
 
 function getKeyWithHighestPoints () {
@@ -198,19 +166,16 @@ function showResult() {
 elements.goBack.addEventListener("click", function () {
   score = 0;
   questionIndex = 0;
-  //  secondsLeft = questions.length * 20;
   holdInterval = 0;
-  //  elements.currentTime.textContent = "";
-  //  elements.inputInitials.value = "";
   showWrapperElement(elements.intro);
 });
 
-// elements.viewHighScores.addEventListener("click", showScores);
+
 
 showWrapperElement(elements.intro);
 elements.startQuiz.addEventListener("click", startQuiz);
 
-// "margarita" can be replaced with our var of choice
+// call cocktail db api
 
 function getCocktail(drink) {
   fetch(
