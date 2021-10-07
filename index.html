@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/jpg" href="./assets/images/icons8-cocktail-64.png"/>
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
-    <link href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>Which Cocktail are You?</title>
 </head>
 <body>
-    <div class= id="wrapper" style="display: none">
-         <div class= id="intro">
+    <div id="wrapper">
+         <div id="intro">
             <h1>Which Cocktail are You?</h1>
              <p>Answer the following questions to determine what type of cocktail you are!</p>
             <!-- <ul id="questionsUl"></ul> -->
@@ -25,11 +25,17 @@
                 <li>choice 3</li>
                 <li>choice 4</li>
             </ul>
+        </div>
         <div id="results">
             <h1>Your Cocktail</h1>
                 <h2 id="cocktail-result"></h2>
-                <img id="cocktail-img">
+                <div id="cocktail-img"></div>
                 <button id="goBack" class="btn btn-lg">Take Again</button>
+                <div>
+                    <h2>Previous Results</h2>
+                    <ul></ul>
+                        <li></li>
+                </div>
         </div>
     <script src="./assets/script.js"></script>
 </body>

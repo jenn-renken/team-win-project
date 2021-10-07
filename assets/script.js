@@ -117,7 +117,6 @@ function onChoice(event) {
   const answerId = parseInt(event.target.id)
     const selectedKey = spiritList[answerId]
     spiritDict[selectedKey]+=1;
-    console.log(spiritDict)
 
   questionIndex++;
   if (questionIndex >= questions.length) {
@@ -128,11 +127,15 @@ function onChoice(event) {
 }
 
 function finishQuiz() {
-    console.log(spiritDict)
     const drink = getKeyWithHighestPoints()
     getCocktail(drink)
     getGif(drink)
-    // THIS IS WHERE YOU MAKE THE API CALL AND SHOW THE RESULTS
+    elements.question.style.display = "none"
+    elements.results.style.display = "block"
+    for (key in spiritDict) {
+      spiritDict[key] = 0
+    }
+    
 }
 
 function getKeyWithHighestPoints () {
@@ -184,7 +187,8 @@ function getCocktail(drink) {
     return response.json();
   })
   .then(function (res) {
-    console.log(res)
+    var drinkString = res.drinks[0].strDrink
+    document.getElementById("cocktail-result").textContent = drinkString
 
   } );
 }
@@ -199,14 +203,13 @@ function getGif(drink) {
           return response.json();
         })
         .then(function(response) {
-            console.log(response)
 			var responseContainerEl = document.querySelector("#cocktail-img");
 			responseContainerEl.innerHTML = '';
 
-			var gifImg = document.createElement('img');
-			gifImg.setAttribute('src', response.data[0].images.fixed.height.url);
+			var gifImg = document.createElement("img");
+			gifImg.setAttribute('src', response.data[0].images.fixed_height.url);
 
-			responseContainerEl.appendChild(drink)
+			responseContainerEl.appendChild(gifImg)
         })
         .catch((err) => {
           console.error(err);
