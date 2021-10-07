@@ -191,20 +191,22 @@ function getCocktail(drink) {
 
 function getGif(drink) {
     fetch(
-        "https://giphy.p.rapidapi.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q="+drink,
-        {
-          method: "GET",
-          headers: {
-            "x-rapidapi-host": "giphy.p.rapidapi.com",
-            "x-rapidapi-key": "ebad596933msh0bd0d60b9facb1bp1906dejsn061864291ea2",
-          },
-        }
+        'https://api.giphy.com/v1/gifs/search?q=' +
+			drink +
+			'&api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN&limit=1'
       )
         .then((response) => {
           return response.json();
         })
-        .then(function(res) {
-            console.log(res)
+        .then(function(response) {
+            console.log(response)
+			var responseContainerEl = document.querySelector("#cocktail-img");
+			responseContainerEl.innerHTML = '';
+
+			var gifImg = document.createElement('img');
+			gifImg.setAttribute('src', response.data[0].images.fixed.height.url);
+
+			responseContainerEl.appendChild(drink)
         })
         .catch((err) => {
           console.error(err);
