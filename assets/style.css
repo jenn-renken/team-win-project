@@ -18,25 +18,6 @@
     font-size: 20px;
     color: white;
 }
-/* 
-#viewHighScores {
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin-left: 20px;
-    color:rgb(66, 2, 119);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: medium;
-    cursor: pointer;
-} */
-
-/* #timer {
-    position: absolute;
-    right: 0;
-    top: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    min-width:200px;
-} */
 
 #goBack {
     position: relative;
@@ -46,54 +27,6 @@
     width: auto;
     text-align: center;
     text-decoration: none;
-}
-
-/* #clear {
-    background-color: rgb(66, 2, 119);
-    position: relative;
-    padding: 10px;
-    font-size: 20px;
-    color: white;
-    top: 30%;
-    right: 5%;
-    text-align: center;
-} */
-
-/* button {
-    border-radius: 8px;
-} */
-
-textarea {
-    width: 90%;
-    margin: 20px;
-}
-
-/* #initials {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-left: 20px;
-} */
-
-/* #Submit {
-    background-color: rgb(66, 2, 119);
-    margin-left: 33%;
-    padding: 15px 32px;
-    font-size: 20px;
-    color: white;
-} */
-
-/* #submitInitials {
-    background-color: rgb(66, 2, 119);
-    font-size: 20px;
-    color: white;
-} */
-
-label {
-    margin-right: 10px;
-}
-input {
-    margin-bottom: 20px;
-    width: 50%;
-    border: 1px solid lightgray;
 }
 
 #questionTitle {
@@ -113,15 +46,6 @@ li {
     text-align: center;
     /* font-size: 18px; */
     color: white;
-}
-
-#scores {
-    margin-left: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-#highScore {
-    padding-left: 140px;
 }
 
 .answer {
