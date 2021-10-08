@@ -6,7 +6,7 @@ var questions = [
   },
   {
     question: "How are you feeling?",
-    choices: ["happy", "pensive", "gregarious","sad"],
+    choices: ["Happy", "Pensive", "Gregarious","Sad"],
   },
   {
     question: "Select another ingredient:",
@@ -32,7 +32,7 @@ var questions = [
   },
 ];
 
-const spiritList = ["gin", "bourbon", "vodka", "tequila"];
+const spiritList = ["Gin", "Bourbon", "Vodka", "Tequila"];
 
 const spiritDict = {
   gin: 0,
@@ -117,7 +117,6 @@ function onChoice(event) {
   const answerId = parseInt(event.target.id)
     const selectedKey = spiritList[answerId]
     spiritDict[selectedKey]+=1;
-    console.log(spiritDict)
 
   questionIndex++;
   if (questionIndex >= questions.length) {
@@ -128,11 +127,16 @@ function onChoice(event) {
 }
 
 function finishQuiz() {
-    console.log(spiritDict)
     const drink = getKeyWithHighestPoints()
     getCocktail(drink)
     getGif(drink)
-    // THIS IS WHERE YOU MAKE THE API CALL AND SHOW THE RESULTS
+    elements.question.style.display = "none"
+    elements.results.style.display = "block"
+    for (key in spiritDict) {
+      spiritDict[key] = 0
+    }
+    // showStoredDrinks()
+    // storeNewDrink(drink)
 }
 
 function getKeyWithHighestPoints () {
@@ -184,8 +188,11 @@ function getCocktail(drink) {
     return response.json();
   })
   .then(function (res) {
-    console.log(res)
-
+    var random = Math.floor(Math.random() * res.drinks.length)
+    var drinkString = res.drinks[random].strDrink
+    document.getElementById("cocktail-result").textContent = drinkString
+    showStoredDrinks()
+    storeNewDrink(drinkString)
   } );
 }
 
@@ -199,20 +206,58 @@ function getGif(drink) {
           return response.json();
         })
         .then(function(response) {
-            console.log(response)
 			var responseContainerEl = document.querySelector("#cocktail-img");
 			responseContainerEl.innerHTML = '';
+          console.log(response.data)
+			var gifImg = document.createElement("img");
+      var random = Math.floor(Math.random() * response.data.length)
+			gifImg.setAttribute('src', response.data[random].images.fixed_height.url);
 
-			var gifImg = document.createElement('img');
-			gifImg.setAttribute('src', response.data[0].images.fixed.height.url);
-
-			responseContainerEl.appendChild(drink)
+			responseContainerEl.appendChild(gifImg)
         })
         .catch((err) => {
           console.error(err);
         });
 }
 
+// store previous drinks in local storage
+function storeNewDrink(drink) {
+  var currentStore = localStorage.getItem("drinks")
+  if (!currentStore) {
+    localStorage.setItem("drinks", JSON.stringify([drink]))
+  }
+  else {
+    var parsed = JSON.parse(currentStore)
+    parsed.push(drink)
+    localStorage.setItem("drinks", JSON.stringify(parsed))
+  }
+}
+
+// return the innerHTML that we wnat to go inside of the UL
+function showStoredDrinks() {
+  var currentStore = localStorage.getItem("drinks")
+  var resultsDiv = document.getElementById("previous-results")
+  resultsDiv.innerHTML = ""
+  if (!currentStore) {
+    resultsDiv.textContent = "No previous drink searches"
+  }
+  else {
+    var parsed = JSON.parse(currentStore)
+    var ul = document.createElement("ul")
+    for (let i = 0; i < parsed.length; i++) {
+      var li = document.createElement("li")
+      li.textContent = parsed[i]
+      ul.appendChild(li)
+    }
+    resultsDiv.appendChild(ul)
+  }
+}
+
+// clear local storage
+document.querySelector("#clear").addEventListener("click", () => {
+  localStorage.clear()
+  showStoredDrinks()
+})
 
 const url = "https//www.thecocktaildb.com/api/json/v1/1/filter.php?1=";
 
