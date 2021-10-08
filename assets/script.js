@@ -6,7 +6,7 @@ var questions = [
   },
   {
     question: "How are you feeling?",
-    choices: ["happy", "pensive", "gregarious","sad"],
+    choices: ["Happy", "Pensive", "Gregarious","Sad"],
   },
   {
     question: "Select another ingredient:",
@@ -32,7 +32,7 @@ var questions = [
   },
 ];
 
-const spiritList = ["gin", "bourbon", "vodka", "tequila"];
+const spiritList = ["Gin", "Bourbon", "Vodka", "Tequila"];
 
 const spiritDict = {
   gin: 0,
@@ -135,8 +135,8 @@ function finishQuiz() {
     for (key in spiritDict) {
       spiritDict[key] = 0
     }
-    showStoredDrinks()
-    storeNewDrink(drink)
+    // showStoredDrinks()
+    // storeNewDrink(drink)
 }
 
 function getKeyWithHighestPoints () {
@@ -188,9 +188,11 @@ function getCocktail(drink) {
     return response.json();
   })
   .then(function (res) {
-    var drinkString = res.drinks[0].strDrink
+    var random = Math.floor(Math.random() * res.drinks.length)
+    var drinkString = res.drinks[random].strDrink
     document.getElementById("cocktail-result").textContent = drinkString
-
+    showStoredDrinks()
+    storeNewDrink(drinkString)
   } );
 }
 
@@ -206,9 +208,10 @@ function getGif(drink) {
         .then(function(response) {
 			var responseContainerEl = document.querySelector("#cocktail-img");
 			responseContainerEl.innerHTML = '';
-
+          console.log(response.data)
 			var gifImg = document.createElement("img");
-			gifImg.setAttribute('src', response.data[0].images.fixed_height.url);
+      var random = Math.floor(Math.random() * response.data.length)
+			gifImg.setAttribute('src', response.data[random].images.fixed_height.url);
 
 			responseContainerEl.appendChild(gifImg)
         })
