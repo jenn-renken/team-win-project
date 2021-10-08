@@ -32,7 +32,7 @@ var questions = [
   },
 ];
 
-const spiritList = ["Gin", "Bourbon", "Vodka", "Tequila"];
+const spiritList = ["gin", "bourbon", "vodka", "tequila"];
 
 const spiritDict = {
   gin: 0,
