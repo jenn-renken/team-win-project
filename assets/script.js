@@ -41,10 +41,7 @@ const spiritDict = {
   tequila: 0,
 };
 
-
-// var score = 0;
 var questionIndex = 0;
-// var holdInterval = 0;
 
 var hideResponseTimeout = null;
 
@@ -165,16 +162,12 @@ function showResult() {
   showWrapperElement(elements.scores);
 }
 
-
-
 elements.goBack.addEventListener("click", function () {
   score = 0;
   questionIndex = 0;
   holdInterval = 0;
   showWrapperElement(elements.intro);
 });
-
-
 
 showWrapperElement(elements.intro);
 elements.startQuiz.addEventListener("click", startQuiz);
@@ -264,43 +257,4 @@ const url = "https//www.thecocktaildb.com/api/json/v1/1/filter.php?1=";
 let currentIndex = 0;
 
 
-// for each answer, predetermine which spirt a given answer is correlated to
 
-// const questions = [
-//     {
-//         question:
-//             possibles:
-//     },
-//     {
-//         question:
-//             possibles:
-//     },
-// ]
-
-// function processAnswer(answer) {
-//   const indexOfAnswer = questions.possibles.indexOf(answer);
-//   spirits[spiritDict[indexOfAnswer]] += 1;
-// }
-
-// function run() {
-//   askQuestion();
-// }
-
-// function askQuestion() {
-//   if (currentIndex < questions.length) {
-//     // take current index and pass to questions[currentIndex]
-//     // when answer received from user, pass that answer to process answer;
-//   } else {
-//     // process final answer, make call api
-//   }
-// }
-
-// function processAnswer(answer)
-
-// processAnswer()
-
-// function getFinalAnswer() {
-//     let highest = "";
-
-//     Object.keys(key in 0)
-// }

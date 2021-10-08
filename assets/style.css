@@ -30,16 +30,19 @@
 }
 
 li.choice-button {
-    border: solid rgb(66, 2, 119);
-    border-radius: 5px;
+    border: .05rem solid #4b48d6;
+    background-color: white;
+    border-radius: .1rem;
     margin-top: 10px;
     padding: 5px 15px;
-    width: 45%;
+    width: 50%;
     text-align: center;
+    color: #4b48d6;
 }
 li.choice-button:hover {
-    background-color: rgba(66, 2, 119, .4);
+    background-color: rgba(75, 72, 214, .1);
     cursor: pointer;
+    color: #4b48d6;
 }
 
 .answer {
@@ -51,16 +54,44 @@ li.choice-button:hover {
     border-top: 1px solid lightgray;
 }
 
+#cocktail-result {
+    color: #4b48d6;
+}
+
+#previous-results {
+    margin-bottom: 15px;
+}
+
 #previous-results > ul {
     list-style-type: none;
+    color: #4b48d6;
+}
+
+#results h3 {
+    margin-top: 25px;
+    border-bottom: .05rem solid #4b48d6;
 }
 
 #clear {
-    border: solid rgb(66, 2, 119);
-    border-radius: 5px;
-    margin-top: 10px;
-    padding: 5px 15px;
-    width: 30%;
+    border: .05rem solid #4b48d6;
+    background-color: white;
     text-align: center;
+    border-radius: .1rem;
+    color: #5755d9;
+    cursor: pointer;
+    display: inline-block;
+    font-size: .8rem;
+    height: 1.8rem;
+    line-height: 1.2rem;
+    outline: 0;
+    padding: .25rem .4rem;
+    text-decoration: none;
+    transition: background .2s,border .2s,box-shadow .2s,color .2s;
+}
+
+#clear:hover {
+    background-color: rgba(75, 72, 214, .1);
+    cursor: pointer;
+    color: #4b48d6;
 }
 
