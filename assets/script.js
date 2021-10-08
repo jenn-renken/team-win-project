@@ -132,8 +132,6 @@ function finishQuiz() {
     for (key in spiritDict) {
       spiritDict[key] = 0
     }
-    // showStoredDrinks()
-    // storeNewDrink(drink)
 }
 
 function getKeyWithHighestPoints () {
