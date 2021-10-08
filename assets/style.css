@@ -27,11 +27,13 @@
 
 #questionTitle {
     text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #questionChoice {
     padding-left: 150px;
     list-style-type: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 li.choice-button {
