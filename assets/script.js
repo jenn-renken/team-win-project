@@ -135,7 +135,8 @@ function finishQuiz() {
     for (key in spiritDict) {
       spiritDict[key] = 0
     }
-    
+    showStoredDrinks()
+    storeNewDrink(drink)
 }
 
 function getKeyWithHighestPoints () {
@@ -216,6 +217,44 @@ function getGif(drink) {
         });
 }
 
+// store previous drinks in local storage
+function storeNewDrink(drink) {
+  var currentStore = localStorage.getItem("drinks")
+  if (!currentStore) {
+    localStorage.setItem("drinks", JSON.stringify([drink]))
+  }
+  else {
+    var parsed = JSON.parse(currentStore)
+    parsed.push(drink)
+    localStorage.setItem("drinks", JSON.stringify(parsed))
+  }
+}
+
+// return the innerHTML that we wnat to go inside of the UL
+function showStoredDrinks() {
+  var currentStore = localStorage.getItem("drinks")
+  var resultsDiv = document.getElementById("previous-results")
+  resultsDiv.innerHTML = ""
+  if (!currentStore) {
+    resultsDiv.textContent = "No previous drink searches"
+  }
+  else {
+    var parsed = JSON.parse(currentStore)
+    var ul = document.createElement("ul")
+    for (let i = 0; i < parsed.length; i++) {
+      var li = document.createElement("li")
+      li.textContent = parsed[i]
+      ul.appendChild(li)
+    }
+    resultsDiv.appendChild(ul)
+  }
+}
+
+// clear local storage
+document.querySelector("#clear").addEventListener("click", () => {
+  localStorage.clear()
+  showStoredDrinks()
+})
 
 const url = "https//www.thecocktaildb.com/api/json/v1/1/filter.php?1=";
 

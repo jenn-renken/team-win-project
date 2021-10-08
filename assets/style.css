@@ -43,7 +43,7 @@
     background: rgb(66, 2, 119);
 } */
 
-li {
+li.choice-button {
     /* background-color: rgb(66, 2, 119); */
     border: solid rgb(66, 2, 119);
     border-radius: 5px;
@@ -55,7 +55,7 @@ li {
     /* font-size: 18px; */
     /* color: white; */
 }
-li:hover {
+li.choice-button:hover {
     background-color: rgba(66, 2, 119, .4);
     cursor: pointer;
 }
