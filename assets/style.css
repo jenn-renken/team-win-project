@@ -1,7 +1,117 @@
+<<<<<<< HEAD
+=======
+* {
+    box-sizing: unset;
+}
+
+>>>>>>> main
 #wrapper {
     position: absolute;
     left: 30%;
     top: 20%;
+<<<<<<< HEAD
     width: 500px;
     height: 500px;
     border: 1px solid rgb(66, 2, 119)};
+=======
+    width: 600px;
+    height: 600px;
+}
+
+#intro {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 20px;
+}
+
+#goBack {
+    padding: 10px;
+    top: 30%;
+    left: 55%;
+    height: 1.2rem;
+    width: auto;
+    text-align: center;
+    text-decoration: none;
+}
+
+#questionTitle {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#questionChoice {
+    padding-left: 150px;
+    list-style-type: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+li.choice-button {
+    border: .05rem solid #4b48d6;
+    background-color: white;
+    border-radius: .1rem;
+    margin-top: 10px;
+    padding: 5px 15px;
+    width: 50%;
+    text-align: center;
+    color: #4b48d6;
+}
+li.choice-button:hover {
+    background-color: rgba(75, 72, 214, .1);
+    cursor: pointer;
+    color: #4b48d6;
+}
+
+.answer {
+    margin-top: 20px;
+    padding: 20px;
+    font-size: 25px;
+    color: gray;
+    font-style: italic;
+    border-top: 1px solid lightgray;
+}
+
+.col-6 {
+    width: 40%;
+}
+
+#cocktail-result {
+    color: #4b48d6;
+}
+
+#previous-results {
+    margin-bottom: 15px;
+}
+
+#previous-results > ul {
+    list-style-type: none;
+    color: #4b48d6;
+}
+
+#results h3 {
+    margin-top: 25px;
+    border-bottom: .05rem solid #4b48d6;
+}
+
+#clear {
+    border: .05rem solid #4b48d6;
+    background-color: white;
+    text-align: center;
+    border-radius: .1rem;
+    color: #5755d9;
+    cursor: pointer;
+    display: inline-block;
+    font-size: .8rem;
+    height: 1.8rem;
+    line-height: 1.2rem;
+    outline: 0;
+    padding: .25rem .4rem;
+    text-decoration: none;
+    transition: background .2s,border .2s,box-shadow .2s,color .2s;
+}
+
+#clear:hover {
+    background-color: rgba(75, 72, 214, .1);
+    cursor: pointer;
+    color: #4b48d6;
+}
+
+>>>>>>> main
