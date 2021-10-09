@@ -2,18 +2,61 @@
     box-sizing: unset;
 }
 
-#wrapper {
-    position: absolute;
-    left: 30%;
-    top: 20%;
-    width: 600px;
-    height: 600px;
+main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    background-image: url(../assets/images/jake-bradley-LnBisJEyVFE-unsplash.jpg);
+    background-color : black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
-#intro {
+#wrapper {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 20px;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(248, 248, 248, 0.8);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden scroll;
+     
 }
+
+/* #intro {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 20px;
+    width: 40rem;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+} */
+
+.section-holder {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 20px;
+    width: 40rem;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+}
+
 
 #goBack {
     padding: 10px;
@@ -28,10 +71,11 @@
 #questionTitle {
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+ 
 }
 
 #questionChoice {
-    padding-left: 150px;
+    /* padding-left: 150px; */
     list-style-type: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -42,7 +86,7 @@ li.choice-button {
     border-radius: .1rem;
     margin-top: 10px;
     padding: 5px 15px;
-    width: 50%;
+    /* width: 50%; */
     text-align: center;
     color: #4b48d6;
 }
@@ -76,6 +120,9 @@ li.choice-button:hover {
 #previous-results > ul {
     list-style-type: none;
     color: #4b48d6;
+}
+#results{
+text-align: center;
 }
 
 #results h3 {
