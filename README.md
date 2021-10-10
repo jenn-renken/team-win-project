@@ -16,3 +16,11 @@ https://jenn-renken.github.io/team-win-project/
 - Giphy API to show the gif at the end of the quiz
 - Cocktail DB API to show the drink name at the end of the quiz
 
+![image](https://user-images.githubusercontent.com/88343948/136706400-d6d663a3-7bf6-410d-9844-2a0820682fa5.png)
+
+![image](https://user-images.githubusercontent.com/88343948/136706414-8fabed5a-37d7-4422-a08d-86afbf008b79.png)
+
+![image](https://user-images.githubusercontent.com/88343948/136706443-36d2590e-4b27-4d2e-a429-e27c8365141f.png)
+
+
+
